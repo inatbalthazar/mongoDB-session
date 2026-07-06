@@ -1,0 +1,7 @@
+{
+  "mongodb.playground.connectionString": "mongodb://localhost:27017",
+  "mongodb.playground.defaultDatabase": "sample_mflix",
+  "files.associations": {
+    "*.mongodb.js": "mongodb"
+  }
+}
