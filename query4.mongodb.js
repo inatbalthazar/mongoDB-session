@@ -1,12 +1,12 @@
 use("sample_mflix");
 
-// Exercise 3
+// Exercise 4
 
-// How many theaters does AL state has?
-db.theaters.find({ "location.address.state": "AL" }).count();
+// 4.1) How many movies mentioned American in their plot?
+db.movies.find({ plot: { $regex: "American", $options: "i" } }).count();
 
-// How many theaters does La Quinta city has?
-db.theaters.find({ "location.address.city": "La Quinta" }).count();
+// 4.2) How many movies does end plot (sentence) with the word street.
+db.movies.find({ plot: { $regex: "street.$", $options: "i" } }).count();
 
-// What is an example of each documents of above like?
-db.theaters.findOne({ "location.address.city": "La Quinta" });
+// 4.3) What does the data of above examples look like?
+db.movies.findOne({ plot: { $regex: "street.$", $options: "i" } });

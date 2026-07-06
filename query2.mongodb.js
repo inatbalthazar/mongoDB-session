@@ -2,8 +2,8 @@ use("sample_mflix");
 
 // Exercise 2
 
-// What is an example of  type “movie” and rated “TV-G” look like?
+// 2.1) What is an example of  type “movie” and rated “TV-G” look like?
 db.movies.findOne({ type: "movie", rated: "TV-G" });
 
-// How many movies are there in “movie” type and “TV-G” rated?
+// 2.2) How many movies are there in “movie” type and “TV-G” rated?
 db.movies.find({ type: "movie", rated: "TV-G" }).count();
