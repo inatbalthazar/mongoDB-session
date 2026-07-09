@@ -1,0 +1,36 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "material_name",
+      "material_type",
+      "stock_quantity",
+      "reorder_level",
+      "updated_at"
+    ],
+    "properties": {
+      "_id": {
+        "bsonType": "objectId"
+      },
+      "material_name": {
+        "bsonType": "string"
+      },
+      "material_type": {
+        "bsonType": "string",
+        "enum": ["shirt_blank", "3d_filament", "3d_resin"]
+      },
+      "size_attribute": {
+        "bsonType": ["string", "null"]
+      },
+      "stock_quantity": {
+        "bsonType": "int"
+      },
+      "reorder_level": {
+        "bsonType": "int"
+      },
+      "updated_at": {
+        "bsonType": "date"
+      }
+    }
+  }
+}

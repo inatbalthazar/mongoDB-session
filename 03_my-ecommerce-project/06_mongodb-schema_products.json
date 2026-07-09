@@ -1,0 +1,40 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "sku",
+      "name",
+      "category",
+      "base_price",
+      "is_active",
+      "created_at"
+    ],
+    "properties": {
+      "_id": {
+        "bsonType": "objectId"
+      },
+      "sku": {
+        "bsonType": "string"
+      },
+      "name": {
+        "bsonType": "string"
+      },
+      "category": {
+        "bsonType": "string",
+        "enum": ["apparel", "trophy", "medal", "wristband", "badge"]
+      },
+      "base_price": {
+        "bsonType": "decimal"
+      },
+      "description": {
+        "bsonType": "string"
+      },
+      "is_active": {
+        "bsonType": "boolean"
+      },
+      "created_at": {
+        "bsonType": "date"
+      }
+    }
+  }
+}

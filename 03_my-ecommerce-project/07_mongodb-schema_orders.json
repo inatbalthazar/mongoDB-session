@@ -1,0 +1,132 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "order_number",
+      "order_status",
+      "customer_snapshot", // เก็บหลักฐาน ชื่อผู้สั่ง
+      "shipping_address_snapshot", // เก็บหลักฐาน ที่อยู่
+      "financials", // ยอด
+      "created_at",
+      "updated_at",
+      "items"
+    ],
+    "properties": {
+      "_id": {
+        "bsonType": "objectId"
+      },
+      "order_number": {
+        "bsonType": "string"
+      },
+      "order_status": {
+        "bsonType": "string",
+        "enum": ["pending_review", "processing", "printing_3d", "shipped", "delivered", "cancelled"]
+      },
+      "customer_snapshot": {
+        "bsonType": "object",
+        "required": ["user_id", "username", "email", "phone_number"],
+        "properties": {
+          "user_id": { "bsonType": "objectId" },
+          "username": { "bsonType": "string" },
+          "email": { "bsonType": "string" },
+          "phone_number": { "bsonType": "string" }
+        }
+      },
+      "shipping_address_snapshot": {
+        "bsonType": "object",
+        "required": [
+          "recipient_name",
+          "recipient_phone",
+          "address_line1",
+          "sub_district",
+          "district",
+          "province",
+          "postal_code"
+        ],
+        "properties": {
+          "recipient_name": { "bsonType": "string" },
+          "recipient_phone": { "bsonType": "string" },
+          "address_line1": { "bsonType": "string" },
+          "address_line2": { "bsonType": "string" },
+          "sub_district": { "bsonType": "string" },
+          "district": { "bsonType": "string" },
+          "province": { "bsonType": "string" },
+          "postal_code": { "bsonType": "string" }
+        }
+      },
+      "financials": {
+        "bsonType": "object",
+        "required": ["total_amount", "shipping_fee", "net_amount", "payment_status"],
+        "properties": {
+          "total_amount": { "bsonType": "decimal" },
+          "shipping_fee": { "bsonType": "decimal" },
+          "net_amount": { "bsonType": "decimal" },
+          "payment_status": { "bsonType": "string", "enum": ["pending", "paid", "failed"] },
+          "payment_method": { "bsonType": "string" },
+          "transaction_ref": { "bsonType": "string" },
+          "paid_at": { "bsonType": "date" }
+        }
+      },
+      "tracking_number": {
+        "bsonType": ["string", "null"]
+      },
+      "created_at": {
+        "bsonType": "date"
+      },
+      "updated_at": {
+        "bsonType": "date"
+      },
+      "items": {
+        "bsonType": "array",
+        "items": {
+          "bsonType": "object",
+          "required": [
+            "item_id",
+            "product_id",
+            "product_name",
+            "category",
+            "quantity",
+            "unit_price",
+            "review_status",
+            "customization"
+          ],
+          "properties": {
+            "item_id": { "bsonType": "objectId" },
+            "product_id": { "bsonType": "objectId" },
+            "product_name": { "bsonType": "string" },
+            "category": { "bsonType": "string", "enum": ["apparel", "trophy", "medal", "wristband", "badge"] },
+            "quantity": { "bsonType": "int" },
+            "unit_price": { "bsonType": "decimal" },
+            "review_status": { 
+              "bsonType": "string", 
+              "enum": ["pending", "approved", "rejected_illegal", "rejected_low_quality"] 
+            },
+            "customization": {
+              "bsonType": "object",
+              "required": ["uploaded_image_url"],
+              "properties": {
+                "selected_size": { "bsonType": ["string", "null"] },
+                "uploaded_image_url": { "bsonType": "string" },
+                "custom_text": { "bsonType": "string" },
+                "additional_note": { "bsonType": "string" }
+              }
+            },
+            "review_history": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "object",
+                "required": ["admin_id", "status", "reviewed_at"],
+                "properties": {
+                  "admin_id": { "bsonType": "objectId" },
+                  "status": { "bsonType": "string" },
+                  "admin_comment": { "bsonType": "string" },
+                  "reviewed_at": { "bsonType": "date" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
