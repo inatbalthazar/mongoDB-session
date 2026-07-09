@@ -1,10 +1,14 @@
-[
+use("victo-db");
+
+db.orders.deleteMany({});
+
+db.orders.insertMany([
   {
-    "_id": { "$oid": "668c333456789abcdef20001" },
+    "_id": ObjectId("668c333456789abcdef20001"),
     "order_number": "ORD-2026-0001",
     "order_status": "processing",
     "customer_snapshot": {
-      "user_id": { "$oid": "668c123456789abcdef00001" },
+      "user_id": ObjectId("668c123456789abcdef00001"),
       "username": "GrandSport_Admin",
       "email": "hr_event@grandcorp.com",
       "phone_number": "0812345678"
@@ -20,25 +24,25 @@
       "postal_code": "21160"
     },
     "financials": {
-      "total_amount": { "$numberDecimal": "144000.00" },
-      "shipping_fee": { "$numberDecimal": "500.00" },
-      "net_amount": { "$numberDecimal": "144500.00" },
+      "total_amount": NumberDecimal("144000.00"),
+      "shipping_fee": NumberDecimal("500.00"),
+      "net_amount": NumberDecimal("144500.00"),
       "payment_status": "paid",
       "payment_method": "credit_card",
       "transaction_ref": "TXN-9988776655",
-      "paid_at": { "$date": "2026-07-09T07:15:00Z" }
+      "paid_at": new Date("2026-07-09T07:15:00Z")
     },
     "tracking_number": null,
-    "created_at": { "$date": "2026-07-09T07:00:00Z" },
-    "updated_at": { "$date": "2026-07-09T07:30:00Z" },
+    "created_at": new Date("2026-07-09T07:00:00Z"),
+    "updated_at": new Date("2026-07-09T07:30:00Z"),
     "items": [
       {
-        "item_id": { "$oid": "668c443456789abcdef30001" },
-        "product_id": { "$oid": "668c223456789abcdef10001" },
+        "item_id": ObjectId("668c443456789abcdef30001"),
+        "product_id": ObjectId("668c223456789abcdef10001"),
         "product_name": "เสื้อยืดคอกลมผ้า Cotton 100% เกรดพรีเมียม",
         "category": "apparel",
-        "quantity": 1200,
-        "unit_price": { "$numberDecimal": "120.00" },
+        "quantity": NumberInt(1200),
+        "unit_price": NumberDecimal("120.00"),
         "review_status": "approved",
         "customization": {
           "selected_size": "L",
@@ -48,21 +52,21 @@
         },
         "review_history": [
           {
-            "admin_id": { "$oid": "668c123456789abcdef00003" },
+            "admin_id": ObjectId("668c123456789abcdef00003"),
             "status": "approved",
             "admin_comment": "ผ่าน ไฟล์รูปภาพมีความคมชัดสูง",
-            "reviewed_at": { "$date": "2026-07-09T07:30:00Z" }
+            "reviewed_at": new Date("2026-07-09T07:30:00Z")
           }
         ]
       }
     ]
   },
   {
-    "_id": { "$oid": "668c333456789abcdef20002" },
+    "_id": ObjectId("668c333456789abcdef20002"),
     "order_number": "ORD-2026-0002",
     "order_status": "printing_3d",
     "customer_snapshot": {
-      "user_id": { "$oid": "668c123456789abcdef00002" },
+      "user_id": ObjectId("668c123456789abcdef00002"),
       "username": "Esports_Promoter_X",
       "email": "tourney_master@gmail.com",
       "phone_number": "0865554433"
@@ -78,25 +82,25 @@
       "postal_code": "10240"
     },
     "financials": {
-      "total_amount": { "$numberDecimal": "11725.00" },
-      "shipping_fee": { "$numberDecimal": "150.00" },
-      "net_amount": { "$numberDecimal": "11875.00" },
+      "total_amount": NumberDecimal("11725.00"),
+      "shipping_fee": NumberDecimal("150.00"),
+      "net_amount": NumberDecimal("11875.00"),
       "payment_status": "paid",
       "payment_method": "promptpay",
       "transaction_ref": "SLIP-20260709-0099",
-      "paid_at": { "$date": "2026-07-09T08:10:00Z" }
+      "paid_at": new Date("2026-07-09T08:10:00Z")
     },
     "tracking_number": null,
-    "created_at": { "$date": "2026-07-09T08:00:00Z" },
-    "updated_at": { "$date": "2026-07-09T08:35:00Z" },
+    "created_at": new Date("2026-07-09T08:00:00Z"),
+    "updated_at": new Date("2026-07-09T08:35:00Z"),
     "items": [
       {
-        "item_id": { "$oid": "668c443456789abcdef30002" },
-        "product_id": { "$oid": "668c223456789abcdef10004" },
+        "item_id": ObjectId("668c443456789abcdef30002"),
+        "product_id": ObjectId("668c223456789abcdef10004"),
         "product_name": "โมเดลถ้วยรางวัลโมเดิร์น (3D Printing Custom)",
         "category": "trophy",
-        "quantity": 3,
-        "unit_price": { "$numberDecimal": "850.00" },
+        "quantity": NumberInt(3),
+        "unit_price": NumberDecimal("850.00"),
         "review_status": "approved",
         "customization": {
           "selected_size": null,
@@ -106,20 +110,20 @@
         },
         "review_history": [
           {
-            "admin_id": { "$oid": "668c123456789abcdef00003" },
+            "admin_id": ObjectId("668c123456789abcdef00003"),
             "status": "approved",
             "admin_comment": "โมเดล 3D ถูกต้อง ไม่มีส่วนลอยตัวที่พิมพ์ไม่ได้",
-            "reviewed_at": { "$date": "2026-07-09T08:20:00Z" }
+            "reviewed_at": new Date("2026-07-09T08:20:00Z")
           }
         ]
       },
       {
-        "item_id": { "$oid": "668c443456789abcdef30003" },
-        "product_id": { "$oid": "668c223456789abcdef10008" },
+        "item_id": ObjectId("668c443456789abcdef30003"),
+        "product_id": ObjectId("668c223456789abcdef10008"),
         "product_name": "สายรัดข้อมือซิลิโคนเรืองแสง (Glow in the Dark)",
         "category": "wristband",
-        "quantity": 367,
-        "unit_price": { "$numberDecimal": "25.00" },
+        "quantity": NumberInt(367),
+        "unit_price": NumberDecimal("25.00"),
         "review_status": "approved",
         "customization": {
           "selected_size": null,
@@ -129,21 +133,21 @@
         },
         "review_history": [
           {
-            "admin_id": { "$oid": "668c123456789abcdef00003" },
+            "admin_id": ObjectId("668c123456789abcdef00003"),
             "status": "approved",
             "admin_comment": "ฟอนต์อักษรหนาพอสำหรับการปั๊มจม",
-            "reviewed_at": { "$date": "2026-07-09T08:35:00Z" }
+            "reviewed_at": new Date("2026-07-09T08:35:00Z")
           }
         ]
       }
     ]
   },
   {
-    "_id": { "$oid": "668c333456789abcdef20003" },
+    "_id": ObjectId("668c333456789abcdef20003"),
     "order_number": "ORD-2026-0003",
     "order_status": "shipped",
     "customer_snapshot": {
-      "user_id": { "$oid": "668c123456789abcdef00002" },
+      "user_id": ObjectId("668c123456789abcdef00002"),
       "username": "Esports_Promoter_X",
       "email": "tourney_master@gmail.com",
       "phone_number": "0865554433"
@@ -159,25 +163,25 @@
       "postal_code": "10240"
     },
     "financials": {
-      "total_amount": { "$numberDecimal": "1200.00" },
-      "shipping_fee": { "$numberDecimal": "40.00" },
-      "net_amount": { "$numberDecimal": "1240.00" },
+      "total_amount": NumberDecimal("1200.00"),
+      "shipping_fee": NumberDecimal("40.00"),
+      "net_amount": NumberDecimal("1240.00"),
       "payment_status": "paid",
       "payment_method": "promptpay",
       "transaction_ref": "SLIP-20260709-0812",
-      "paid_at": { "$date": "2026-07-09T09:05:00Z" }
+      "paid_at": new Date("2026-07-09T09:05:00Z")
     },
     "tracking_number": "TH123456789TH",
-    "created_at": { "$date": "2026-07-09T09:00:00Z" },
-    "updated_at": { "$date": "2026-07-09T11:00:00Z" },
+    "created_at": new Date("2026-07-09T09:00:00Z"),
+    "updated_at": new Date("2026-07-09T11:00:00Z"),
     "items": [
       {
-        "item_id": { "$oid": "668c443456789abcdef30004" },
-        "product_id": { "$oid": "668c223456789abcdef10009" },
+        "item_id": ObjectId("668c443456789abcdef30004"),
+        "product_id": ObjectId("668c223456789abcdef10009"),
         "product_name": "เข็มกลัดวงกลมฝาเหล็ก ขนาด 5.8 ซม.",
         "category": "badge",
-        "quantity": 100,
-        "unit_price": { "$numberDecimal": "12.00" },
+        "quantity": NumberInt(100),
+        "unit_price": NumberDecimal("12.00"),
         "review_status": "approved",
         "customization": {
           "selected_size": null,
@@ -187,21 +191,21 @@
         },
         "review_history": [
           {
-            "admin_id": { "$oid": "668c123456789abcdef00003" },
+            "admin_id": ObjectId("668c123456789abcdef00003"),
             "status": "approved",
             "admin_comment": "ภาพผ่านเกณฑ์",
-            "reviewed_at": { "$date": "2026-07-09T09:20:00Z" }
+            "reviewed_at": new Date("2026-07-09T09:20:00Z")
           }
         ]
       }
     ]
   },
   {
-    "_id": { "$oid": "668c333456789abcdef20004" },
+    "_id": ObjectId("668c333456789abcdef20004"),
     "order_number": "ORD-2026-0004",
     "order_status": "pending_review",
     "customer_snapshot": {
-      "user_id": { "$oid": "668c123456789abcdef00001" },
+      "user_id": ObjectId("668c123456789abcdef00001"),
       "username": "GrandSport_Admin",
       "email": "hr_event@grandcorp.com",
       "phone_number": "0812345678"
@@ -217,25 +221,25 @@
       "postal_code": "10110"
     },
     "financials": {
-      "total_amount": { "$numberDecimal": "6500.00" },
-      "shipping_fee": { "$numberDecimal": "80.00" },
-      "net_amount": { "$numberDecimal": "6580.00" },
+      "total_amount": NumberDecimal("6500.00"),
+      "shipping_fee": NumberDecimal("80.00"),
+      "net_amount": NumberDecimal("6580.00"),
       "payment_status": "pending",
       "payment_method": null,
       "transaction_ref": null,
       "paid_at": null
     },
     "tracking_number": null,
-    "created_at": { "$date": "2026-07-09T13:45:00Z" },
-    "updated_at": { "$date": "2026-07-09T13:45:00Z" },
+    "created_at": new Date("2026-07-09T13:45:00Z"),
+    "updated_at": new Date("2026-07-09T13:45:00Z"),
     "items": [
       {
-        "item_id": { "$oid": "668c443456789abcdef30005" },
-        "product_id": { "$oid": "668c223456789abcdef10005" },
+        "item_id": ObjectId("668c443456789abcdef30005"),
+        "product_id": ObjectId("668c223456789abcdef10005"),
         "product_name": "เหรียญรางวัลโลหะซิงค์อัลลอย ชุบทองเงา",
         "category": "medal",
-        "quantity": 100,
-        "unit_price": { "$numberDecimal": "65.00" },
+        "quantity": NumberInt(100),
+        "unit_price": NumberDecimal("65.00"),
         "review_status": "pending",
         "customization": {
           "selected_size": null,
@@ -248,11 +252,11 @@
     ]
   },
   {
-    "_id": { "$oid": "668c333456789abcdef20005" },
+    "_id": ObjectId("668c333456789abcdef20005"),
     "order_number": "ORD-2026-0005",
     "order_status": "cancelled",
     "customer_snapshot": {
-      "user_id": { "$oid": "668c123456789abcdef00001" },
+      "user_id": ObjectId("668c123456789abcdef00001"),
       "username": "GrandSport_Admin",
       "email": "hr_event@grandcorp.com",
       "phone_number": "0812345678"
@@ -268,25 +272,25 @@
       "postal_code": "10110"
     },
     "financials": {
-      "total_amount": { "$numberDecimal": "12500.00" },
-      "shipping_fee": { "$numberDecimal": "120.00" },
-      "net_amount": { "$numberDecimal": "12620.00" },
+      "total_amount": NumberDecimal("12500.00"),
+      "shipping_fee": NumberDecimal("120.00"),
+      "net_amount": NumberDecimal("12620.00"),
       "payment_status": "failed",
       "payment_method": "promptpay",
       "transaction_ref": "SLIP-CANCEL-X",
       "paid_at": null
     },
     "tracking_number": null,
-    "created_at": { "$date": "2026-07-09T10:00:00Z" },
-    "updated_at": { "$date": "2026-07-09T10:45:00Z" },
+    "created_at": new Date("2026-07-09T10:00:00Z"),
+    "updated_at": new Date("2026-07-09T10:45:00Z"),
     "items": [
       {
-        "item_id": { "$oid": "668c443456789abcdef30006" },
-        "product_id": { "$oid": "668c223456789abcdef10002" },
+        "item_id": ObjectId("668c443456789abcdef30006"),
+        "product_id": ObjectId("668c223456789abcdef10002"),
         "product_name": "เสื้อโปโลผ้า Kanoko จั๊มพ์แขน",
         "category": "apparel",
-        "quantity": 50,
-        "unit_price": { "$numberDecimal": "250.00" },
+        "quantity": NumberInt(50),
+        "unit_price": NumberDecimal("250.00"),
         "review_status": "rejected_illegal",
         "customization": {
           "selected_size": "M",
@@ -296,147 +300,25 @@
         },
         "review_history": [
           {
-            "admin_id": { "$oid": "668c123456789abcdef00003" },
+            "admin_id": ObjectId("668c123456789abcdef00003"),
             "status": "rejected_illegal",
             "admin_comment": "ปฏิเสธการผลิต: ตรวจพบโลโก้ลิขสิทธิ์เครื่องหมายการค้าปลอมแปลงผิดกฎหมาย",
-            "reviewed_at": { "$date": "2026-07-09T10:45:00Z" }
+            "reviewed_at": new Date("2026-07-09T10:45:00Z")
           }
         ]
       }
     ]
   }
-]
+]);
 
-
-// {
-//   "$jsonSchema": {
-//     "bsonType": "object",
-//     "required": [
-//       "order_number",
-//       "order_status",
-//       "customer_snapshot", // เก็บหลักฐาน ชื่อผู้สั่ง
-//       "shipping_address_snapshot", // เก็บหลักฐาน ที่อยู่
-//       "financials", // ยอด
-//       "created_at",
-//       "updated_at",
-//       "items"
-//     ],
-//     "properties": {
-//       "_id": {
-//         "bsonType": "objectId"
-//       },
-//       "order_number": {
-//         "bsonType": "string"
-//       },
-//       "order_status": {
-//         "bsonType": "string",
-//         "enum": ["pending_review", "processing", "printing_3d", "shipped", "delivered", "cancelled"]
-//       },
-//       "customer_snapshot": {
-//         "bsonType": "object",
-//         "required": ["user_id", "username", "email", "phone_number"],
-//         "properties": {
-//           "user_id": { "bsonType": "objectId" },
-//           "username": { "bsonType": "string" },
-//           "email": { "bsonType": "string" },
-//           "phone_number": { "bsonType": "string" }
-//         }
-//       },
-//       "shipping_address_snapshot": {
-//         "bsonType": "object",
-//         "required": [
-//           "recipient_name",
-//           "recipient_phone",
-//           "address_line1",
-//           "sub_district",
-//           "district",
-//           "province",
-//           "postal_code"
-//         ],
-//         "properties": {
-//           "recipient_name": { "bsonType": "string" },
-//           "recipient_phone": { "bsonType": "string" },
-//           "address_line1": { "bsonType": "string" },
-//           "address_line2": { "bsonType": "string" },
-//           "sub_district": { "bsonType": "string" },
-//           "district": { "bsonType": "string" },
-//           "province": { "bsonType": "string" },
-//           "postal_code": { "bsonType": "string" }
-//         }
-//       },
-//       "financials": {
-//         "bsonType": "object",
-//         "required": ["total_amount", "shipping_fee", "net_amount", "payment_status"],
-//         "properties": {
-//           "total_amount": { "bsonType": "decimal" },
-//           "shipping_fee": { "bsonType": "decimal" },
-//           "net_amount": { "bsonType": "decimal" },
-//           "payment_status": { "bsonType": "string", "enum": ["pending", "paid", "failed"] },
-//           "payment_method": { "bsonType": "string" },
-//           "transaction_ref": { "bsonType": "string" },
-//           "paid_at": { "bsonType": "date" }
-//         }
-//       },
-//       "tracking_number": {
-//         "bsonType": ["string", "null"]
-//       },
-//       "created_at": {
-//         "bsonType": "date"
-//       },
-//       "updated_at": {
-//         "bsonType": "date"
-//       },
-//       "items": {
-//         "bsonType": "array",
-//         "items": {
-//           "bsonType": "object",
-//           "required": [
-//             "item_id",
-//             "product_id",
-//             "product_name",
-//             "category",
-//             "quantity",
-//             "unit_price",
-//             "review_status",
-//             "customization"
-//           ],
-//           "properties": {
-//             "item_id": { "bsonType": "objectId" },
-//             "product_id": { "bsonType": "objectId" },
-//             "product_name": { "bsonType": "string" },
-//             "category": { "bsonType": "string", "enum": ["apparel", "trophy", "medal", "wristband", "badge"] },
-//             "quantity": { "bsonType": "int" },
-//             "unit_price": { "bsonType": "decimal" },
-//             "review_status": { 
-//               "bsonType": "string", 
-//               "enum": ["pending", "approved", "rejected_illegal", "rejected_low_quality"] 
-//             },
-//             "customization": {
-//               "bsonType": "object",
-//               "required": ["uploaded_image_url"],
-//               "properties": {
-//                 "selected_size": { "bsonType": ["string", "null"] },
-//                 "uploaded_image_url": { "bsonType": "string" },
-//                 "custom_text": { "bsonType": "string" },
-//                 "additional_note": { "bsonType": "string" }
-//               }
-//             },
-//             "review_history": {
-//               "bsonType": "array",
-//               "items": {
-//                 "bsonType": "object",
-//                 "required": ["admin_id", "status", "reviewed_at"],
-//                 "properties": {
-//                   "admin_id": { "bsonType": "objectId" },
-//                   "status": { "bsonType": "string" },
-//                   "admin_comment": { "bsonType": "string" },
-//                   "reviewed_at": { "bsonType": "date" }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "customer_snapshot.user_id",
+      foreignField: "_id",
+      as: "customer_info"
+    }
+  },
+  { $unwind: "$customer_info" }
+]);

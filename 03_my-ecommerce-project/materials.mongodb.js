@@ -1,0 +1,62 @@
+use("victo-db");
+
+db.materials.deleteMany({});
+
+db.materials.insertMany([
+  {
+    "_id": ObjectId("668c553456789abcdef40001"),
+    "material_name": "เสื้อยืดคอกลมผ้า Cotton เปล่า (สีดำ) - ไซส์ M",
+    "material_type": "shirt_blank",
+    "size_attribute": "M",
+    "stock_quantity": NumberInt(500),
+    "reorder_level": NumberInt(100),
+    "updated_at": new Date("2026-07-09T05:00:00Z")
+  },
+  {
+    "_id": ObjectId("668c553456789abcdef40002"),
+    "material_name": "เสื้อยืดคอกลมผ้า Cotton เปล่า (สีดำ) - ไซส์ L",
+    "material_type": "shirt_blank",
+    "size_attribute": "L",
+    "stock_quantity": NumberInt(1200),
+    "reorder_level": NumberInt(200),
+    "updated_at": new Date("2026-07-09T05:10:00Z")
+  },
+  {
+    "_id": ObjectId("668c553456789abcdef40003"),
+    "material_name": "เส้นพลาสติก PLA Filament สำหรับเครื่องพิมพ์ 3 มิติ (สีขาวพรีเมียม)",
+    "material_type": "3d_filament",
+    "size_attribute": "1.75mm",
+    "stock_quantity": NumberInt(25),
+    "reorder_level": NumberInt(5),
+    "updated_at": new Date("2026-07-09T05:15:00Z")
+  },
+  {
+    "_id": ObjectId("668c553456789abcdef40004"),
+    "material_name": "เส้นพลาสติก ABS Filament ความทนทานสูง (สีดำ)",
+    "material_type": "3d_filament",
+    "size_attribute": "1.75mm",
+    "stock_quantity": NumberInt(4),
+    "reorder_level": NumberInt(5),
+    "updated_at": new Date("2026-07-09T05:20:00Z")
+  },
+  {
+    "_id": ObjectId("668c553456789abcdef40005"),
+    "material_name": "น้ำยาเรซินความละเอียดสูง Standard Rigid Resin (สีใส)",
+    "material_type": "3d_resin",
+    "size_attribute": null,
+    "stock_quantity": NumberInt(15),
+    "reorder_level": NumberInt(3),
+    "updated_at": new Date("2026-07-09T05:30:00Z")
+  },
+  {
+    "_id": ObjectId("668c553456789abcdef40006"),
+    "material_name": "น้ำยาเรซินอุตสาหกรรม Tough Resin เกรดวิศวกรรม (สีเทา)",
+    "material_type": "3d_resin",
+    "size_attribute": null,
+    "stock_quantity": NumberInt(8),
+    "reorder_level": NumberInt(2),
+    "updated_at": new Date("2026-07-09T05:35:00Z")
+  }
+]);
+
+db.materials.find({});
